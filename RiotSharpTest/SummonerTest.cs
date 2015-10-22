@@ -15,7 +15,7 @@ namespace RiotSharpTest
         private static int id = int.Parse(ConfigurationManager.AppSettings["Summoner1Id"]);
         private static RiotApi api = RiotApi.GetInstance(apiKey);
         private static Summoner summoner = api.GetSummoner(Region.euw, id);
-        private static int championId = 28;
+        private static int championId = 31;
         private static Queue queue = Queue.RankedSolo5x5;
 
         [TestMethod]
@@ -162,7 +162,7 @@ namespace RiotSharpTest
         [TestCategory("Summoner")]
         public void GetStatsRanked_Test()
         {
-            var stats = summoner.GetStatsRanked(Season.Season3);
+            var stats = summoner.GetStatsRanked(Season.Season2015);
 
             Assert.IsNotNull(stats);
             Assert.IsTrue(stats.Count() > 0);
@@ -172,7 +172,7 @@ namespace RiotSharpTest
         [TestCategory("Summoner"), TestCategory("Async")]
         public void GetStatsRankedAsync_Test()
         {
-            var stats = summoner.GetStatsRankedAsync(Season.Season3);
+            var stats = summoner.GetStatsRankedAsync(Season.Season2015);
 
             Assert.IsNotNull(stats.Result);
             Assert.IsTrue(stats.Result.Count() > 0);

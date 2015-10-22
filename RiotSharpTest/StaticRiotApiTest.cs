@@ -91,6 +91,60 @@ namespace RiotSharpTest
 
         [TestMethod]
         [TestCategory("StaticRiotApi")]
+        public void GetLanguageStrings_Test()
+        {
+            var strings = api.GetLanguageStrings(Region.euw);
+
+            Assert.IsTrue(strings.Data.Count > 0);
+        }
+
+        [TestMethod]
+        [TestCategory("StaticRiotApi"), TestCategory("Async")]
+        public void GetLanguageStringsAsync_Test()
+        {
+            var strings = api.GetLanguageStringsAsync(Region.euw);
+
+            Assert.IsTrue(strings.Result.Data.Count > 0);
+        }
+
+        [TestMethod]
+        [TestCategory("StaticRiotApi")]
+        public void GetLanguages_Test()
+        {
+            var langs = api.GetLanguages(Region.euw);
+
+            Assert.IsTrue(langs.Count > 0);
+        }
+
+        [TestMethod]
+        [TestCategory("StaticRiotApi"), TestCategory("Async")]
+        public void GetLanguagesAsync_Test()
+        {
+            var langs = api.GetLanguagesAsync(Region.euw);
+
+            Assert.IsTrue(langs.Result.Count > 0);
+        }
+
+        [TestMethod]
+        [TestCategory("StaticRiotApi")]
+        public void GetMaps_Test()
+        {
+            var maps = api.GetMaps(Region.euw);
+
+            Assert.IsTrue(maps.Count > 0);
+        }
+
+        [TestMethod]
+        [TestCategory("StaticRiotApi"), TestCategory("Async")]
+        public void GetMapsAsync_Test()
+        {
+            var maps = api.GetMapsAsync(Region.euw);
+
+            Assert.IsTrue(maps.Result.Count > 0);
+        }
+
+        [TestMethod]
+        [TestCategory("StaticRiotApi")]
         public void GetMasteries_Test()
         {
             var masteries = api.GetMasteries(Region.euw, MasteryData.all);
