@@ -7,6 +7,8 @@ namespace RiotSharp
     /// </summary>
     public class RiotSharpException: Exception
     {
+        public int StatusCode { get; set; }
+
         public RiotSharpException() { }
 
         public RiotSharpException(string message)
